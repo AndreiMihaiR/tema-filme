@@ -1,0 +1,9 @@
+#container {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.movie-container {
+    border: 30px solid green
+}
