@@ -189,7 +189,7 @@ let moviesTitle = movies.map((movieTitle) => {
   return `The movie title is ${movieTitle.title}`;
 })
 
-let container = document.getElementById('container');
+// let container = document.getElementById('container');
 //______________________________________________________________
 
 let createListMovies = (movieTitle) => {
@@ -255,101 +255,10 @@ let genreAndReleaseDate = movies.filter((movie) => {
 //________________________________________________________________
 
 
-let contentContainer = document.getElementById('container');  //-1
+// let contentContainer = document.getElementById('container'); 
 
-// console.log(contentContainer);
-
-let createMovie = ((moviesList) => {                               //-2
-  createMovie.innerHTML = "";                               //-3
-  moviesList.forEach(movie => {                                 //-4
-    const {title, genre, release, description, directore, imageurl} = movie;
-    
-    // const {title, genre, release} = movie;                  //-5
-    let movieContainer = document.createElement('div');
-    movieContainer.className = 'movie-container';
-    contentContainer.appendChild(movieContainer);
-
-    let movieDiv = document.createElement('div');
-    movieDiv.className = 'movie-div';
-    movieContainer.appendChild(movieDiv);
-    // contentContainer.appendChild(movieContainer);
-
-
-    let productTitle = document.createElement("h1");
-    movieDiv.appendChild(productTitle);
-    productTitle.innerHTML = title;
-
-    let productGenre = document.createElement("h1");
-    movieDiv.appendChild(productGenre);
-    productGenre.innerHTML = `Genre ${genre.name}`;
-
-    let productRelease = document.createElement("h2");
-    movieDiv.appendChild(productRelease);
-    productRelease.innerHTML = `Release date: ${release}`;
-
-    let productDescription = document.createElement("h3");
-    movieDiv.appendChild(productDescription);
-    productDescription.innerHTML = description;
-
-    let productDirectore = document.createElement("h2");
-    movieDiv.appendChild(productDirectore);
-    productDirectore.innerHTML = `Director: ${director.name}`;
-
-    let productImageUrl = document.createElement("img");
-    movieContainer.appendChild(productImageUrl); 
-    productImageUrl.className = "img-class"
-    productImageUrl.setAttribute("src", imageurl)
-
-
-  })
-})
-
-console.log(contentContainer);
-// createMovie('title');
-
-movies.map((movie) =>{
-  let {title, genre, release, description, director, imageurl} = movie;
-  createMovie(title, genre, release, description, director, imageurl);
-});
-
-
-let getSF = () => {
-  let sfMovies = movies.filter((movie) => {
-    return moviesList.genre.name === "Science Fiction"
-  })
-}
-
-let getAdventure = () => {
-  let adventureMovies = movies.filter((movie) => {
-    return moviesList.genre.name === "Adventure"
-  })
-  createMovie(adventureMovies);
-}
-
-let getFantasy = () => {
-  let fantasyMovies = movies.filter((movie) => {
-    return moviesList.genre.name === "Fantasy"
-  })
-}
-
-
-
-
-
-
-
-
-
-//______________________________________________________________________
-
-
-
-
-// let createMovie = (title, genre, release, description, director, imageurl) => {                               //-2
-//   createMovie.innerHTML = "";                               //-3
-//   list.forEach((movie) => {                                 //-4
-//     const {title, genre, release, description, directore, imageurl} = movie;
-//     // const {title, genre, release} = movie;                  //-5
+// let createMovie = (title, genre, release, description, director, imageurl) => {
+ 
 //     let movieContainer = document.createElement('div');
 //     movieContainer.className = 'movie-container';
 //     contentContainer.appendChild(movieContainer);
@@ -386,5 +295,119 @@ let getFantasy = () => {
 //     productImageUrl.setAttribute("src", imageurl)
 
 
-//   })
-// }
+//   }
+
+//   console.log(createMovie);
+
+//   movies.map((movie) =>{
+//     let {title, genre, release, description, director, imageurl} = movie;
+//     createMovie(title, genre, release, description, director, imageurl);
+//   });
+
+//______________________________________________________________________
+
+
+let container = document.getElementById('container');
+console.log(container);
+let createMovies = (products) => {
+  products.forEach(product => {
+    const {title, genre, release, description, director, imageurl} = product;
+
+    let movieContainer = document.createElement('div');
+    movieContainer.className = "movie-container"
+    container.appendChild(movieContainer);
+  
+    let movieDiv = document.createElement('div');
+      movieDiv.className = 'movie-div';
+      movieContainer.appendChild(movieDiv);
+  
+      let productTitle = document.createElement("h1");
+        movieDiv.appendChild(productTitle);
+        productTitle.innerHTML = title;
+  
+      let productGenre = document.createElement("h1");
+          movieDiv.appendChild(productGenre);
+          productGenre.innerHTML = `Genre ${genre.name}`;
+  
+      let productRelease = document.createElement("h2");
+         movieDiv.appendChild(productRelease);
+         productRelease.innerHTML = `Release date: ${release}`;
+  
+      let productDescription = document.createElement("h3");
+         movieDiv.appendChild(productDescription);
+         productDescription.innerHTML = description;
+  
+     let productDirectore = document.createElement("h2");
+         movieDiv.appendChild(productDirectore);
+         productDirectore.innerHTML = `Director: ${director.name}`;
+  
+      let productImageUrl = document.createElement("img");
+         movieContainer.appendChild(productImageUrl); 
+         productImageUrl.className = "img-class"
+         productImageUrl.setAttribute("src", imageurl)
+  });
+  
+  
+  
+  ///// products.forEach((product) => {
+    
+
+  ///// })
+  
+ 
+}
+
+createMovies(movies);  
+
+movies.map((product) =>{
+    let {title, genre, release, description, director, imageurl} = product;
+    createMovies(product);
+  });
+
+
+
+
+
+
+
+
+//_________________________________________________________________________________-
+
+
+
+let getSF = () => {
+  let sfMovies = movies.filter((product) => {
+    return product.genre === "Science Fiction"
+  })
+  createMovies(sfMovies);
+} 
+
+
+let getAdventure = () => {
+  let adventureMovies = movies.filter((product) => {
+    return product.genre === "Adventure"
+  })
+  createMovies(adventureMovies);
+}
+
+let getFantasy = () => {
+  let fantasyMovies = movies.filter((product) => {
+    return product.genre === "Fantasy"
+  })
+  createMovies(fantasyMovies);
+}
+
+
+
+
+
+
+// movies.map((movie) =>{
+//   let {title, genre, release, description, director, imageurl} = movie;
+//   createMovie(title, genre, release, description, director, imageurl);
+// });
+
+
+
+
+
